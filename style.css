@@ -1,0 +1,255 @@
+:root {
+  --bg: #fff;
+  --fg: #14181c;
+  --mu: #667;
+  --ln: #e2e5e8;
+  --cd: #f6f7f8;
+  --ac: #0b6b4f;
+  --bd: #b42318;
+  --wn: #9a6700;
+  box-sizing: border-box;
+  padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0f1316;
+    --fg: #e8ecef;
+    --mu: #98a2ad;
+    --ln: #2a3138;
+    --cd: #171c21;
+    --ac: #3fbf93;
+    --bd: #ff8a80;
+    --wn: #f2b84b;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0f1316;
+  --fg: #e8ecef;
+  --mu: #98a2ad;
+  --ln: #2a3138;
+  --cd: #171c21;
+  --ac: #3fbf93;
+  --bd: #ff8a80;
+  --wn: #f2b84b;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+[hidden] {
+  display: none !important;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font:
+    15px/1.5 system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  background: var(--bg);
+  z-index: 10;
+}
+header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--ln);
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  background: var(--bg);
+  z-index: 5;
+}
+nav {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--ln);
+  scrollbar-width: none;
+}
+nav button {
+  flex: none;
+}
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px;
+}
+.g {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  margin-bottom: 12px;
+}
+.c {
+  border: 1px solid var(--ln);
+  border-radius: 8px;
+  padding: 12px;
+  background: var(--cd);
+  margin-bottom: 12px;
+}
+.g .c {
+  margin: 0;
+}
+.k small {
+  color: var(--mu);
+  display: block;
+}
+.k b {
+  font-size: 20px;
+}
+.w {
+  overflow-x: auto;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 13px;
+}
+th,
+td {
+  padding: 7px 8px;
+  border-bottom: 1px solid var(--ln);
+  text-align: left;
+  white-space: nowrap;
+}
+th {
+  color: var(--mu);
+  font-weight: 600;
+}
+.r {
+  text-align: right;
+}
+input,
+select,
+button,
+textarea {
+  font: inherit;
+  color: inherit;
+  background: var(--bg);
+  border: 1px solid var(--ln);
+  border-radius: 6px;
+  padding: 8px 10px;
+  min-height: 40px;
+  max-width: 100%;
+}
+button {
+  cursor: pointer;
+}
+button.p {
+  background: var(--ac);
+  color: #fff;
+  border-color: var(--ac);
+}
+.s {
+  min-height: 32px;
+  padding: 3px 9px;
+  font-size: 13px;
+}
+label {
+  display: grid;
+  gap: 3px;
+  font-size: 12px;
+  color: var(--mu);
+}
+.f {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  align-items: end;
+}
+.tg {
+  padding: 1px 8px;
+  border-radius: 99px;
+  font-size: 12px;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+}
+.ok {
+  color: var(--ac);
+}
+.bad {
+  color: var(--bd);
+}
+.warn {
+  color: var(--wn);
+}
+a {
+  color: var(--ac);
+  cursor: pointer;
+  text-decoration: underline;
+}
+small {
+  color: var(--mu);
+}
+#m {
+  position: fixed;
+  inset: 0;
+  background: #0008;
+  display: none;
+  justify-content: center;
+  padding: 14px;
+  overflow: auto;
+  z-index: 20;
+}
+#m.on {
+  display: flex;
+}
+#mb {
+  background: var(--bg);
+  border-radius: 10px;
+  padding: 16px;
+  width: min(640px, 100%);
+  margin-top: 20px;
+  align-self: flex-start;
+}
+#t {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  background: var(--fg);
+  color: var(--bg);
+  padding: 10px 16px;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  max-width: 92vw;
+  z-index: 30;
+}
+#t.on {
+  opacity: 1;
+}
+.bar {
+  height: 8px;
+  background: var(--ac);
+  border-radius: 4px;
+  min-width: 2px;
+}
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+  .k b {
+    font-size: 17px;
+  }
+}
+@media print {
+  header,
+  nav,
+  .np {
+    display: none;
+  }
+}
